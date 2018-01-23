@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nom: MyString
+  resume: MyString
+  sortie: MyString
+  idComment: 1
+  idPersonnage: 1
+  idAnime: 1
+
+two:
+  nom: MyString
+  resume: MyString
+  sortie: MyString
+  idComment: 1
+  idPersonnage: 1
+  idAnime: 1

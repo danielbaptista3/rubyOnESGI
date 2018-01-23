@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Personnages</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @personnages.each do |personnage| %>
+      <tr>
+        <td><%= personnage.nom %></td>
+        <td><%= personnage.description %></td>
+        <td><%= link_to 'Afficher', personnage,
+        class: 'btn btn-primary btn-xs' %></td>
+        <td><%= link_to 'Modifier', edit_personnage_path(personnage),
+        class: 'btn btn-info btn-xs' %></td>
+        <td><%= link_to 'Supprimer', personnage, method: :delete, data: { confirm: 'Are you sure?' },
+        class: 'btn btn-danger btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nouveau Personnage', new_personnage_path,
+class: 'btn btn-success' %>

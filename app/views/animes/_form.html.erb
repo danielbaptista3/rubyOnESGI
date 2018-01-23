@@ -1,0 +1,45 @@
+<div class="form-style-2">
+<%= form_with(model: anime, local: true) do |form| %>
+  <% if anime.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(anime.errors.count, "error") %> prohibited this anime from being saved:</h2>
+
+      <ul>
+      <% anime.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nom %>
+    <%= form.text_field :nom, id: :anime_nom %>
+  </div>
+
+  <div class="field">
+    <%= form.label :resume %>
+    <%= form.text_field :resume, id: :anime_resume %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apparition %>
+    <%= form.date_select :apparition, id: :anime_apparition %>
+  </div>
+
+  <div class="field">
+    <%= form.label :statut %>
+    <%= form.text_field :statut, id: :anime_statut %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.number_field :note, id: :anime_note %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

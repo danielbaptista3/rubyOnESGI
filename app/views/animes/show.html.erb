@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @anime.id %>
+</p>
+
+<p>
+  <strong>Nom:</strong>
+  <%= @anime.nom %>
+</p>
+
+<p>
+  <strong>Resume:</strong>
+  <%= @anime.resume %>
+</p>
+
+<p>
+  <strong>Apparition:</strong>
+  <%= @anime.apparition %>
+</p>
+
+<p>
+  <strong>Statut:</strong>
+  <%= @anime.statut %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @anime.note %>
+</p>
+
+
+<%= link_to 'Edit', edit_anime_path(@anime) %> |
+
+
+<%= link_to 'Back', animes_path %>

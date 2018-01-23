@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Youranimelist" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", :media => "all" %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "YourAnimeList", root_path, :class => "navbar-brand"  %>
+        </div>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Animes", animes_path  %></li>
+          <li><%= link_to "Personnages", personnages_path  %></li>
+          <li><%= link_to "Episodes", episodes_path  %></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+        <% if !utilisateur_signed_in? %>
+          <li><%= link_to "S'inscrire", new_utilisateur_registration_path  %></li>
+          <li><%= link_to "Se connecter", new_utilisateur_session_path  %></li>
+        <% else %>
+          <li>Connecté en tant que <br><%= current_utilisateur.email  %></li>
+          <li><%= link_to('Se déconnecter', destroy_utilisateur_session_path, method: :delete) %></li>
+          <% end %>
+        </ul>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <%= yield %>
+      </div> <!-- /container -->
+    </div>
+
+      <footer class="panel footer">
+        <p>&copy; YourAnimeList 2018</p>
+      </footer>
+
+  </body>
+</html>
