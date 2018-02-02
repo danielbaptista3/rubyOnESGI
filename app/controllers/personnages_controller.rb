@@ -69,6 +69,6 @@ class PersonnagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def personnage_params
-      params.require(:personnage).permit(:nom, :description)
+      params.require(:personnage).permit(:nom, :description, :anime_id)
     end
 end

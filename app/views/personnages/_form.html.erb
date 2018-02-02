@@ -1,5 +1,5 @@
 <div class="form-style-2">
-<%= form_with(model: personnage, local: true) do |form| %>
+  <%= simple_form_for @personnage do |f| %>
   <% if personnage.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(personnage.errors.count, "error") %> prohibited this personnage from being saved:</h2>
@@ -13,22 +13,19 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nom %>
-    <%= form.text_field :nom, id: :personnage_nom %>
+    <%= f.input :nom %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description, id: :personnage_description %>
+    <%= f.input :description %>
   </div>
 
   <div class="field">
-    <%= form.label :anime_id %>
-    <%= form.text_field :anime_id, id: :personnage_anime_id %>
+    <%= f.association :anime, label_method: :nom %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
 </div>
