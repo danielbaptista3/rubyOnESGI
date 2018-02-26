@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110222014) do
+ActiveRecord::Schema.define(version: 20180225160147) do
 
   create_table "animes", force: :cascade do |t|
     t.string "nom"
@@ -20,6 +20,19 @@ ActiveRecord::Schema.define(version: 20180110222014) do
     t.integer "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "producteur_id"
+    t.integer "studio_id"
+    t.integer "auteur_id"
+    t.integer "genre_id"
+    t.index ["auteur_id"], name: "index_animes_on_auteur_id", unique: true
+    t.index ["genre_id"], name: "index_animes_on_genre_id"
+    t.index ["producteur_id"], name: "index_animes_on_producteur_id", unique: true
+    t.index ["studio_id"], name: "index_animes_on_studio_id", unique: true
+  end
+
+  create_table "auteurs", force: :cascade do |t|
+    t.string "nom"
+    t.string "prenom"
   end
 
   create_table "commontator_comments", force: :cascade do |t|
@@ -71,6 +84,11 @@ ActiveRecord::Schema.define(version: 20180110222014) do
     t.index ["anime_id"], name: "index_episodes_on_anime_id", unique: true
   end
 
+  create_table "genres", force: :cascade do |t|
+    t.string "nom"
+    t.string "description"
+  end
+
   create_table "personnages", force: :cascade do |t|
     t.string "nom"
     t.string "description"
@@ -78,6 +96,24 @@ ActiveRecord::Schema.define(version: 20180110222014) do
     t.datetime "updated_at", null: false
     t.integer "anime_id"
     t.index ["anime_id"], name: "index_personnages_on_anime_id", unique: true
+  end
+
+  create_table "producteurs", force: :cascade do |t|
+    t.string "nom"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "studios", force: :cascade do |t|
+    t.string "nom"
+    t.date "dateDeCreation"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "nom"
+    t.string "description"
   end
 
   create_table "utilisateurs", force: :cascade do |t|

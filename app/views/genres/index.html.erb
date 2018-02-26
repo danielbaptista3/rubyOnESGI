@@ -1,0 +1,38 @@
+<h1>Liste des Studios</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Nom</th>
+      <th>Date de création</th>
+      <th>Liste d'anime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @studios.each do |studio| %>
+      <tr>
+        <td><%= studio.nom %></td>
+        <td><%= studio.dateDeCreation %></td>
+
+        <td>
+
+          <%= @studio.animes.each do |anime| %>
+            <%= anime.nom %>
+          <% end %>
+
+        </td>
+
+        <td>
+          <%= link_to 'Afficher', studio,
+          class: 'btn btn-primary btn-xs' %>
+          <%= link_to 'Modifier', edit_studio_path(studio),
+          class: 'btn btn-info btn-xs' %>
+          <%= link_to 'Supprimer', studio, method: :delete, data: { confirm: 'Are you sure?' },
+          class: 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<%= link_to new_studio_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Ajouter un studio
+<% end %>
