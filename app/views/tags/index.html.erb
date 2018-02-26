@@ -1,38 +1,28 @@
-<h1>Liste des Studios</h1>
+<h1>Liste des Tags</h1>
 <table class="table">
   <thead>
     <tr>
       <th>Nom</th>
-      <th>Date de création</th>
-      <th>Liste d'anime</th>
+      <th>Description</th>
     </tr>
   </thead>
   <tbody>
-    <% @studios.each do |studio| %>
+    <% @tags.each do |tag| %>
       <tr>
-        <td><%= studio.nom %></td>
-        <td><%= studio.dateDeCreation %></td>
-
+        <td><%= tag.nom %></td>
+        <td><%= tag.description%></td>
         <td>
-
-          <%= @studio.animes.each do |anime| %>
-            <%= anime.nom %>
-          <% end %>
-
-        </td>
-
-        <td>
-          <%= link_to 'Afficher', studio,
+          <%= link_to 'Afficher', tag,
           class: 'btn btn-primary btn-xs' %>
-          <%= link_to 'Modifier', edit_studio_path(studio),
+          <%= link_to 'Modifier', edit_tag_path(tag),
           class: 'btn btn-info btn-xs' %>
-          <%= link_to 'Supprimer', studio, method: :delete, data: { confirm: 'Are you sure?' },
+          <%= link_to 'Supprimer', tag, method: :delete, data: { confirm: 'Are you sure?' },
           class: 'btn btn-danger btn-xs' %>
         </td>
       </tr>
       <% end %>
   </tbody>
 </table>
-<%= link_to new_studio_path, class: 'btn btn-success' do %>
-  <i class="glyphicon glyphicon-plus"></i> Ajouter un studio
+<%= link_to new_tag_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> Ajouter un tag
 <% end %>

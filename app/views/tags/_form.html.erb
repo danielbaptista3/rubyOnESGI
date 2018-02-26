@@ -1,13 +1,9 @@
-<%= simple_form_for @studio do |form| %>
+<%= simple_form_for @tag do |form| %>
     <div class="field">
       <%= form.input :nom %>
     </div>
     <div class="field">
-      <%= form.input :dateDeCreation, as: :date%>
-    </div>
-
-    <div class="field">
-      <%= form.association :anime, label_method: :nom %>
+      <%= form.input :description%>
     </div>
 
   <div class="actions">
@@ -15,6 +11,6 @@
   </div>
 
 <% end %>
-<%= link_to studios_path, class: 'btn btn-success' do %>
-  <i class="glyphicon glyphicon-upload"></i> Retour à la liste des Studios
+<%= link_to tags_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-upload"></i> Retour à la liste des tags
 <% end %>

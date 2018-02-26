@@ -1,19 +1,14 @@
-<h1>Affichage d'un studio</h1>
+<h1>Affichage d'un tag</h1>
 
 <p>
   <strong>Nom:</strong>
-  <%= @studio.nom %>
+  <%= @tag.nom %>
 </p>
 
 <p>
-  <strong>Date de création:</strong>
-  <%= @studio.dateDeCreation %>
+  <strong>Description:</strong>
+  <%= @tag.description%>
 </p>
 
-<p>
-  <strong>Liste d'anime:</strong>
-  <%=  %>
-</p>
-
-<%= link_to 'Edit', edit_studo_path(@studio) %> |
-<%= link_to 'Back', studio_path %>
+<%= link_to 'Edit', edit_tag_path(@tag) %> |
+<%= link_to 'Back', tag_path %>
